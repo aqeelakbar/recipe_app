@@ -20,11 +20,6 @@ app.get('/', function(req, res){
 	res.render('index',{title: 'Search Recipes', json: recipes, number: JSON.recipes.length, search: req.query.keywords});
 });
 
-app.get('/recipe', function(req, res){
-	let recipe;
-	res.render('recipe',{json: recipe});
-});
-
 app.get('/recipe/:recipeId', function(req, res){
 	let recipe;
 	if(req.params.recipeId){
