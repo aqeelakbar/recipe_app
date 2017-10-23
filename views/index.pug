@@ -6,12 +6,17 @@ block content
       .recipes-recipe-finder_wrapper
         .recipes-recipe-finder_wrapper
           h2.recipe-finder__header
-            =number
-            |&#32;delicious recipes to discover
-          form.recipe-finder__search-form(method="GET" action="/search")
+            if search
+              | Search results for&#32;
+              i
+                =search
+            else
+              =number
+              |&#32;delicious recipes to discover
+          form.recipe-finder__search-form(method="GET" action="/")
             label.recipe-finder__search-box-label(for="searchInput-large")
               | Find a recipe on BBC Food
-            input.recipe-finder__search-box#searchInput-large(type="text" placeholder="Find a recipe on Food" name="keywords")
+            input.recipe-finder__search-box#searchInput-large(type="text" placeholder="Find a recipe on Food" name="keywords" value="")
             label.recipe-finder__search-button-label(for="recipe-finder-search-button")
               | Search BBC Food's recipes
             input.recipe-finder__search-button#recipe-finder-search-button(type="submit" value="")
