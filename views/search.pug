@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  section.recipes-wrap
+    .block
+      h2.content-title__text
+        i Searched Results for&#32;
+        =term
+        |:
+      .recipe-collections__list
+        for recipe in json
+              - let string = '/recipe/' + recipe.name.toLowerCase().split(' ').join('_');
+              - let ingredients = recipe.name.split(' ').join(', ')
+              a.recipe-collections__title-link(href=string)
+                .recipe-collections__information
+                    .recipe-collections__title
+                        =recipe.name
+                    .recipe-metadata-wrap
+                      .recipe-metadata__heading Cooking time:&#32;
+                        span.recipe-collections__cook-time
+                          =recipe.cookingTime
+                      .recipe-metadata__heading Ingredients:&#32;
+                        span.recipe-collections__cook-time
+                          =ingredients
+              hr
+        else
+          .recipe-collections__title Sorry, we currently have no recipes for you
+          hr

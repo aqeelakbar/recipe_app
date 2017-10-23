@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  section.container
+    if json
+      -let ingredients = json.mainIngredients.join(', ');
+      figure.recipe
+        figcaption
+          h2
+            =json.name
+        img(src=json.imageUrl alt=json.name)
+        .recipe-metadata-wrap
+          .recipe-metadata__heading Cooking time:&#32;
+            span.recipe-collections__cook-time
+              =json.cookingTime
+          .recipe-metadata__heading Ingredients:&#32;
+            if json.cookingIngredients
+              for items in json.cookingIngredients
+                span.recipe-collections__cook-time
+                  - let measured = ["tbsp", "tsp", "g", "kg", "ml", "l"], measure;
+                  // TODO: Handle quantities server side?
+                  - new RegExp(measured.join("|")).test(items.quantity) ? measure = true : !measure;
+                  =items.quantity
+                  |&#32;
+                  if !measure
+                    | x&#32;
+                  span.recipe-collections__cook-time
+                    =items.ingredient
+                    |,&#32;
+            else
+              span.recipe-collections__cook-time
+                =ingredients
+    else
+      p Sorry, this recipe doesn't exist or may have been removed

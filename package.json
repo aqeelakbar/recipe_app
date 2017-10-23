@@ -1,0 +1,32 @@
+{
+  "name": "recipe_inspire_search",
+  "version": "1.0.0",
+  "description": "Recipes served over node via express, pug/jade is used for templating.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schizdazzle/recipe_app.git"
+  },
+  "keywords": [
+    "pug",
+    "jade",
+    "express",
+    "node",
+    "javascript",
+    "server"
+  ],
+  "author": "Aqeel Akbar <@schizdazzle>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "*",
+    "pug": "*"
+  },
+  "bugs": {
+    "url": "https://github.com/schizdazzle/recipe_app/issues"
+  },
+  "homepage": "https://github.com/schizdazzle/recipe_app#readme"
+}
