@@ -1,9 +1,9 @@
 const	EXPRESS = require('express'),
 			PATH = require('path'),
-			JSON = require('./lib/recipes.json'),
-			UTILS = require('./lib/helper.js');
+			UTILS = require('./lib/helper.js'),
+			JSON = require('./lib/recipes.json');
 
-var app = EXPRESS();
+let app = EXPRESS();
 
 app.set('views', PATH.join(__dirname, 'views'));
 app.set('view engine', 'pug');
